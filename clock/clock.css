@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300;400;500;600&display=swap');
+
+:root
+{
+    --baseColor1: #10111c;
+    --baseColor2: #ffffff;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Chivo Mono', monospace;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--baseColor1);
+}
+
+.container
+{
+    position: relative;
+    background: var(--baseColor1);
+    border-radius: 20px;
+    border: 5px solid #565555;
+    border-top-left-radius: 265px;
+    border-top-right-radius: 265px;
+    box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
+                inset 0 -15px 15px rgba(255,255,255,0.05),
+                0 15px 15px rgba(0,0,0,0.05),
+                inset 0 15px 15px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* css for analog clock */
+.container .clock
+{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: var(--baseColor1);
+    border-radius: 50%;
+    box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
+                inset 0 -15px 15px rgba(255,255,255,0.05),
+                0 15px 15px rgba(0,0,0,0.05),
+                inset 0 15px 15px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.clock::before
+{
+    content: '';
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    background: var(--baseColor1);
+    border: 3px solid var(--baseColor2);
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.clock span
+{
+    position: absolute;
+    inset: 10px;
+    color: var(--baseColor2);
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b
+{
+    font-size: 2em;
+    font-style: italic;
+    opacity: 0.65;
+    font-weight: 500px;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+}
+
+.circleAxis
+{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 2px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 6;
+}
+
+.circleAxis::before
+{
+    content: '';
+    position: absolute;
+    top: -15px;
+    width: 12px;
+    height: 12px;
+    background: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--clr),
+                0 0 60px var(--clr);
+}
+
+.c2
+{
+    width: 280px;
+    height: 280px;
+    z-index: 2;
+}
+
+.c3
+{
+    width: 200px;
+    height: 200px;
+    z-index: 4;
+}
+
+.circleAxis i
+{
+    position: absolute;
+    width: 4px;
+    height: 100px;
+    background: var(--clr);
+    opacity: 0.78;
+    transform-origin: bottom;
+    transform: scale(0.9);
+    border-radius: 4px;
+}
+
+.circleAxis:nth-child(1) i
+{ 
+    width: 2px;
+    height: 175px; 
+}
+.circleAxis:nth-child(2) i
+{ 
+    width: 5px;
+    height: 140px;
+}
+.circleAxis:nth-child(3) i
+{
+    width: 8px;
+}
+
+/* css for digital clock */
+.clock2
+{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 2.5em;
+    font-weight: 600;
+    border: 2px solid rgba(0,0,0,0.5);
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5),
+        inset 5px 5px 20px rgba(255,255,255,0.2),
+        inset -5px -5px 15px rgba(0,0,0,0.75);
+}
+
+.clock2 .circle
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    padding: 5px;
+    border-radius: 110px;
+    background: #191f38;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.clock2 .ap
+{
+    position: relative;
+    top: -4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.clock2 .ap div
+{
+    font-size: 0.65em;
+    font-weight: 500;
+    color: #eccea8;
+}
+
+.clock2 .circle:nth-child(1)::after,
+.clock2 .circle:nth-child(2)::after
+{
+    content: ':';
+    position: absolute;
+    right: -24px;
+    bottom: 4px;
+    font-size: 1.2em;
+    color: var(--baseColor2);
+    animation: blink 1s steps(1) infinite;
+}
+
+.clock2 .circle div
+{
+    font-weight: 600px;
+    color: var(--clr);
+}
+
+@keyframes blink
+{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 721px){    
+    .container{ float: left; padding: 0; width: 94%; margin: 7%;}
+    .container .clock{width: 450px; height: 450px;}
+}
+@media screen and (max-width: 481px) {
+    .container{ float: left; padding: 0; width: 94%; margin: 7%;}
+    .container .clock{width: 370px; height: 370px;}
+    .clock span{inset: 6px;}
+    .clock span b{font-size: 24px;}
+    .clock .circleAxis{width: 260px; height: 260px;}
+    .circleAxis.c2{width: 205px; height: 205px;}
+    .circleAxis.c3{width: 150px; height: 150px;}
+    .circleAxis:nth-child(1) i{height: 145px;}
+    .circleAxis:nth-child(2) i{height: 100px;}
+    .circleAxis:nth-child(3) i{height: 70px;}
+    .clock2{padding: 5px 10px; font-size: 2em;}
+    .clock2 .circle{width: 55px; padding: 3px;}
+    .clock2 .ap{left: -5px;}
+    .clock2 .ap div{font-size: 0.55em;}
+    .clock2 .circle:nth-child(1)::after, 
+    .clock2 .circle:nth-child(2)::after{right: -22px; bottom: 2px;}
+}
+
+@media screen and (max-width: 425px) {
+    .container{ float: left; padding: 0; width: 94%; margin: 7%;}
+}
+
+@media screen and (max-width: 380px) {
+    .container{ float: left; padding: 0; width: 94%; margin: 7%;}
+    .container .clock{width: 320px; height: 320px;}
+    .clock .circleAxis{width: 220px; height: 220px;}
+    .circleAxis::before{top: -20px; width: 10px; height: 10px;}
+    .circleAxis.c2{width: 170px; height: 170px;}
+    .circleAxis.c3{width: 120px; height: 120px;}
+    .circleAxis:nth-child(1) i{height: 125px;}
+    .circleAxis:nth-child(2) i{height: 85px;}
+    .circleAxis:nth-child(3) i{height: 55px; width: 6px;}
+}
+
+@media screen and (max-width: 320px) {
+    .container{ float: left; padding: 0; width: 94%; margin: 7%;}
+    .container .clock{width: 260px; height: 260px;}
+    .clock span b{font-size: 20px;}
+    .circleAxis::before{top: -15px; width: 8px; height: 8px;}
+    .clock .circleAxis{width: 180px; height: 180px;}
+    .circleAxis.c2{width: 130px; height: 130px;}
+    .circleAxis.c3{width: 90px; height: 90px;}
+    .circleAxis:nth-child(1) i{height: 100px;}
+    .circleAxis:nth-child(2) i{height: 55px;}
+    .circleAxis:nth-child(3) i{height: 35px; width: 5px;}
+    .clock2{padding: 5px 3px; font-size: 1.4em;}
+    .clock2 .circle{width: 45px; padding: 2px;}
+    .clock2 .circle:nth-child(1)::after, 
+    .clock2 .circle:nth-child(2)::after{right: -18px;}
+}

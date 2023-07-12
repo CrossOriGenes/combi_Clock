@@ -1,0 +1,43 @@
+colours--
+
+    #10111c -> dark blackish-blue
+    #ffffff -> pure white
+    #1e9bff -> neon blue
+    #ff8c1a -> light orange
+    #fee800 -> light yellow
+    #ff1867 -> light vermillion
+
+
+############################################################################################
+
+
+ Calculations for the movement of the clock hands --
+
+    12 hours moves in = 360 deg
+    1 hour moves in = 360/12 = 30 deg
+    h hours moves in = 30h deg
+    
+  Similarly--
+
+    60 mins moves in = 30 deg
+    1 min in       = 30/60 deg
+    m min in   =  m/2 deg
+
+  Hence total hour movement in addition to minutes is [ 30h + m/2 deg ] ------(i)
+  
+  Similarly--
+    
+    60 mins moves in = 360 deg
+    1 min moves in = 6 deg
+    m min moves in = [ 6m deg ] ------(ii)
+
+  Similarly--
+
+    60 secs moves in = 360 deg
+    1 sec moves in = 6 deg
+    s secs moves in = [ 6s deg ] ------(iii) 
+
+
+#############################################################################################
+
+
